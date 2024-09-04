@@ -1,7 +1,6 @@
 import torch
 from torch import nn
 from flask import Flask, request, jsonify
-from pydantic import BaseModel
 
 app = Flask(__name__)
 
@@ -13,9 +12,6 @@ class LinearRegressionModel(nn.Module):
 
     def forward(self, x: torch.Tensor) -> torch.Tensor:
         return self.weights * x + self.bias
-
-class PingRequest(BaseModel):
-    ping_value: float
 
 # Load models
 model_x = LinearRegressionModel()
