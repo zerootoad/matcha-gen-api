@@ -42,10 +42,10 @@ def predict():
     ping_tensor = torch.tensor([ping], dtype=torch.float32).unsqueeze(dim=1)
     
     with torch.no_grad():
-        if model == 0:
+        if model == 1:
             pred_x = normal_model_x(ping_tensor).item()
             pred_y = normal_model_y(ping_tensor).item()
-        elif model == 1:
+        elif model == 0:
             pred_x = rage_model_x(ping_tensor).item()
             pred_y = rage_model_y(ping_tensor).item()
         else:
