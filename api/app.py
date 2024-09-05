@@ -32,7 +32,7 @@ rage_model_y.eval()
 
 @app.route('/predict', methods=['GET'])
 def predict():
-    ping = request.args.get('ping', type=float)
+    ping = request.args.get('ping', type=int)
     model = request.args.get('model', type=int, default=0)
     if ping is None:
         return jsonify({"error": "ping is required"}), 400
